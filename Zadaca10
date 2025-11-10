@@ -1,0 +1,73 @@
+#include <iostream> // !!!!!!!!!  Napomena mn hard kodirana zadaca ama me mrzi deka e 12 vekje , mnogu pokratko mozhe da se reshi ( so funkcii) ke dojde nekoj 20? linii pomalce
+using namespace std;
+
+int main(){
+    int a,b,c,d,e,f=1;
+
+    while (f!=0) {
+        cin>>a;
+        if (!cin) {
+            f=1;
+            break;
+        }
+        if (a<10)
+            continue;
+        
+        d=0;
+        b=a;
+        while (b>0) {
+            d++;
+            b/=10;
+        }
+        int broj[d] = {0};
+        e=0;
+        b=a;
+        while (b>0) {
+            broj[d-e-1] = b%10;
+            e++;
+            b/=10;
+        }
+        int toggle = 0; // logicen switch ama switch e rezerviran zbor pa toggle treba da koristam
+        int greshen = 0;
+        for (int i=0; i<d; i++) {
+            if (i+1==d)
+                continue;
+            if (toggle==0) {
+                if (broj[i]>broj[i+1]) {
+                    toggle=1;
+                }else
+                    greshen=1;
+            }else if (toggle==1) {
+                if (broj[i]<broj[i+1]) {
+                    toggle=0;
+                }else
+                    greshen=1;
+            }
+        }
+        if (greshen!=1) {
+            cout<<a<<endl;
+            continue;
+        }
+
+        toggle = 0; // logicen switch ama switch e rezerviran zbor pa toggle treba da koristam
+        greshen = 0;
+        for (int i=0; i<d; i++) {
+            if (i+1==d)
+                continue;
+            if (toggle==0) {
+                if (broj[i]<broj[i+1]) {
+                    toggle=1;
+                }else
+                    greshen=1;
+            }else if (toggle==1) {
+                if (broj[i]>broj[i+1]) {
+                    toggle=0;
+                }else
+                    greshen=1;
+            }
+        }
+        if (greshen!=1)
+            cout<<a<<endl;
+    }
+    return 0;
+}
