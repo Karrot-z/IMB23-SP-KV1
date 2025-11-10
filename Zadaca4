@@ -1,0 +1,33 @@
+#include <complex>
+#include <iostream>
+using namespace std;
+
+int main(){
+    char a='a';
+    int zbir=0;
+    int br=0;
+    int count=0;
+    int malzbir=0;
+    while (a!='!') {
+        cin>>noskipws>>a;
+        int meow=a-'0';
+
+        if (meow<=9 && a>='0' && a<='9') {
+            if (count>0) {
+                malzbir*=pow(10, count);
+                malzbir+=meow;
+            }else {
+                malzbir+=meow;
+                count++;
+            }
+        }else {
+            count=0;
+        }
+        if (count==0) {
+            zbir+=malzbir;
+            malzbir=0;
+        }
+    }
+    cout<<zbir;
+    return 0;
+}
