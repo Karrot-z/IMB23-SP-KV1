@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    int z,x,y; // Za malce ke se ubiev na proshlata btw, ne procitav deka a i b treba da se smenat (i.e. se zima pogolemiot od pomaliot) ako b>a;pp;;;;adflawkfoiajfoiafiwenifawofjaj :(((((
+    float count=0,total=0;
+    cin>>z;
+
+    while (true) {
+        cin>>x>>y;
+        if (x==0 && y==0) {
+            break;
+        }
+        if (x+y == z) {
+            count++;
+        }
+        total++;
+    }
+
+    cout<<"Vnesovte "<< count<<" parovi od broevi chij zbir e "<<z<<'\n'<<"Procentot na parovi so zbir "<<z<<" e "<<count/total*100<<"%";
+    return 0;
+}
