@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    char a;
+    int zbir=0;
+
+    while (a != '.' ){
+        cin>>a;
+        if (a >= '0' and a <= '9') {
+            zbir+=a-'0';
+        }else if ( a >= 'A' and a <= 'Z') {
+            zbir+=a-'A'+10;
+        }else if ( a >= 'a' and a <= 'z') {
+            zbir+=a-'a'+10;
+        }
+    }
+
+    int zav16=0;
+    int tempzbir=zbir;
+    if (tempzbir%10==6) {
+        tempzbir/=10;
+        zav16++;
+    }
+    if (tempzbir%10==1) {
+        tempzbir/=10;
+        zav16++;
+    }
+    if (zbir%16==0 && zav16 == 2) {
+        cout<<"Poln pogodok"<<endl;
+    }else if (zbir%16==0) {
+        cout<<"Pogodok"<<endl;
+    }else
+        cout<<zbir<<endl;
+
+    return 0;
+}
