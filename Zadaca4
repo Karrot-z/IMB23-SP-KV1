@@ -1,6 +1,12 @@
-#include <complex>
 #include <iostream>
 using namespace std;
+
+int pow(int a, int b) {
+    for (int i=1; i<b; i++) {
+        a*=a;
+    }
+    return a;
+}
 
 int main(){
     char a='a';
