@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int pow(int a, int b) {
+    for (int i = 1; i < b; i++) {
+        a*=a;
+    }
+
+    return a;
+}
+
+int main(){
+    int sum=0,count_sum=0,count=0;
+    char input;
+
+    while (input!='!') {
+        cin >> noskipws >> input;
+
+        if (input >= '0' && input <= '9') {
+            if (count==0) {
+                count_sum += input-'0';
+                count++;
+            }else {
+                count_sum *= pow(10,count);
+                count_sum += input-'0';
+                count++;
+            }
+        }else {
+            count=0;
+            sum += count_sum;
+            count_sum = 0;
+        }
+    }
+
+    cout<<sum;
+
+    return 0;
+}
